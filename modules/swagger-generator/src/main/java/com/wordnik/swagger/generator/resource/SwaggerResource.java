@@ -1,17 +1,28 @@
 package com.wordnik.swagger.generator.resource;
 
-import com.wordnik.swagger.codegen.*;
-import com.wordnik.swagger.generator.util.*;
-import com.wordnik.swagger.annotations.*;
-import com.wordnik.swagger.generator.model.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
+
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
+import com.wordnik.swagger.codegen.Codegen;
+import com.wordnik.swagger.codegen.CodegenConfig;
+import com.wordnik.swagger.codegen.CodegenType;
 import com.wordnik.swagger.generator.exception.BadRequestException;
-import com.wordnik.swagger.online.Generator;
-
-import java.io.File;
-import java.util.*;
-
-import javax.ws.rs.*;
-import javax.ws.rs.core.*;
+import com.wordnik.swagger.generator.model.Generated;
+import com.wordnik.swagger.generator.model.GeneratorInput;
+import com.wordnik.swagger.generator.model.ResponseCode;
+import com.wordnik.swagger.generator.online.Generator;
 
 @Path("/gen")
 @Api(value = "/gen", description = "Resource for generating swagger components")
